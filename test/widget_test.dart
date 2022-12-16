@@ -57,13 +57,14 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             LongPressButtonWithTimer(
-                durationToActive: Duration(seconds: 1),
-                countToZero: true,
-                onLongPress: () {},
-                buttonWidget: ElevatedButton(
-                  child: Text("Elevated Button"),
-                  onPressed: (() {}),
-                )),
+              seconds: 4,
+              countToZero: true,
+              onLongPress: () {},
+              button: ElevatedButton(
+                child: Text("1"),
+                onPressed: () {},
+              ),
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
