@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'long_press_button_with_timer.dart';
+import 'package:long_press_button_with_timer.dart';
 
 void main() {
   runApp(const MyApp());

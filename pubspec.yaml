@@ -3,7 +3,7 @@ description: A long press sensitive button with visible timer (e.g. Long press f
 
 # publish_to: 'none'
 repository: https://github.com/koriai/long_press_button_with_timer
-version: 1.0.0+1
+version: 0.0.1
 
 environment:
   sdk: '>=2.18.5 <3.0.0'
