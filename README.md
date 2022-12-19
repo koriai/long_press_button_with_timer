@@ -2,15 +2,18 @@
 
 A long press sensitive button with visible timer (e.g. Long press for 5 seconds to delete account)
 
-## Getting Started
+![Elevated Button example](https://github.com/koriai/long_press_button_with_timer/blob/master/src/example_elevated_button.gif)
 
-This project is a starting point for a Flutter application.
+![Text Button example](https://github.com/koriai/long_press_button_with_timer/blob/master/src/example_text_button.gif)
 
-A few resources to get you started if this is your first Flutter project:
+## Platoform support
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Feature/platform              | Android | iOS | Web              | macOS            | Windows          | Linux            |
+| ----------------------------- | ------- | --- | ---------------- | ---------------- | ---------------- | ---------------- |
+| long_press_button_with_timer  | ✓       | ?   | ?                | ?                | ?                | ?                |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+```sh
+flutter pub add long_press_button_with_timer
+```

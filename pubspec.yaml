@@ -2,7 +2,6 @@ name: long_press_button_with_timer
 description: A long press sensitive button with visible timer (e.g. Long press for 5 seconds to delete account)
 
 publish_to: 'none'
-
 repository: https://github.com/koriai/long_press_button_with_timer
 version: 1.0.0+1
 
