@@ -2,8 +2,6 @@
 
 A long press sensitive button with visible timer (e.g. Long press for 5 seconds to delete account)
 
-![Elevated Button example](https://github.com/koriai/long_press_button_with_timer/blob/master/src/example_elevated_button.gif)
-
 ![Text Button example](https://github.com/koriai/long_press_button_with_timer/blob/master/src/example_text_button.gif)
 
 ## Platoform support
