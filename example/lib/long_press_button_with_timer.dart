@@ -1,8 +1,7 @@
-library long_press_button_with_timer;
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:long_press_button_with_timer.dart';
 
 class LongPressButtonWithTimer extends StatefulWidget {
   /// The Base button widget
