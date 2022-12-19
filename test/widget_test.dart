@@ -1,10 +1,3 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import '../lib/long_press_button_with_timer.dart';
 
@@ -20,7 +13,10 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: title,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData.dark().copyWith(
+          useMaterial3: true,
+          brightness: Brightness.dark,
+          primaryColor: Colors.blue),
       home: const MyHomePage(title: title),
     );
   }
@@ -35,14 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,30 +41,59 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
             LongPressButtonWithTimer(
               seconds: 4,
-              countToZero: true,
-              onLongPress: () {},
+              afterLongPress: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AlertDialog(
+                        title: Text("ElevatedButton"),
+                      );
+                    });
+              },
               button: ElevatedButton(
-                child: Text("1"),
+                child: const Text("Elevated Button Sample"),
                 onPressed: () {},
               ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            const SizedBox(height: 60),
+            LongPressButtonWithTimer(
+              seconds: 4,
+              afterLongPress: () async {
+                await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AlertDialog(
+                        title: Text("textbutton"),
+                      );
+                    });
+              },
+              button: TextButton(
+                child: const Text("Text Button Sample"),
+                onPressed: () {},
+              ),
+            ),
+            const SizedBox(height: 60),
+            LongPressButtonWithTimer(
+              seconds: 25,
+              afterLongPress: () async {
+                await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AlertDialog(
+                        title: Text("outlinedbutton"),
+                      );
+                    });
+              },
+              button: OutlinedButton(
+                child: const Text("OutlinedButton"),
+                onPressed: () {},
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

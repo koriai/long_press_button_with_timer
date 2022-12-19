@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:long_press_button_with_timer.dart';
+// import '../../long_press_button_with_timer.dart';
 
 class LongPressButtonWithTimer extends StatefulWidget {
   /// The Base button widget
@@ -16,6 +17,9 @@ class LongPressButtonWithTimer extends StatefulWidget {
 
   /// Duration to activate function of [onLongPress]
   final int seconds;
+
+  /// The initial visibility of timer
+  final bool initialVisible;
 
   /// The count down of timer is [Duration] to zero, Default [true]
   final bool countToZero;
@@ -34,6 +38,7 @@ class LongPressButtonWithTimer extends StatefulWidget {
     required this.button,
     required this.afterLongPress,
     this.seconds = 3,
+    this.initialVisible = false,
     this.countToZero = true,
     this.countVisibility = true,
     this.onPressedColor = Colors.grey,
@@ -50,6 +55,7 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
   late VoidCallback? origianlOnTap;
   late int _counter;
   late Type _buttonType;
+  late bool _initialVisible;
   Timer? _timer;
   late bool _counting;
 
@@ -57,6 +63,7 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
   void initState() {
     _counter = widget.seconds;
     _buttonType = widget.button.runtimeType;
+    _initialVisible = widget.initialVisible;
     _counting = false;
 
     if (_buttonType == ElevatedButton) {
@@ -102,22 +109,33 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
   _button(int counter) {
     if (_buttonType == ElevatedButton) {
       ElevatedButton originalButton = widget.button as ElevatedButton;
-      if (counter == widget.seconds) return originalButton;
-      return ElevatedButton(
-          onPressed: () {},
-          child: _makeRowColumn(originalButton.child, counter.toString()));
+      if (_initialVisible || (counter != widget.seconds)) {
+        return ElevatedButton(
+            onPressed: () {},
+            child: _makeRowColumn(originalButton.child, counter.toString()));
+      } else {
+        return ElevatedButton(
+            onPressed: () {},
+            child: _makeRowColumn(originalButton.child, counter.toString()));
+      }
     } else if (_buttonType == TextButton) {
       TextButton originalButton = widget.button as TextButton;
-      if (counter == widget.seconds) return originalButton;
-      return TextButton(
-          onPressed: () {},
-          child: _makeRowColumn(originalButton.child, counter.toString()));
+      if (_initialVisible || (counter != widget.seconds)) {
+        return TextButton(
+            onPressed: () {},
+            child: _makeRowColumn(originalButton.child, counter.toString()));
+      } else {
+        return originalButton;
+      }
     } else if (_buttonType == OutlinedButton) {
       OutlinedButton originalButton = widget.button as OutlinedButton;
-      if (counter == widget.seconds) return originalButton;
-      return OutlinedButton(
-          onPressed: () {},
-          child: _makeRowColumn(originalButton.child, counter.toString()));
+      if (_initialVisible || (counter != widget.seconds)) {
+        return OutlinedButton(
+            onPressed: () {},
+            child: _makeRowColumn(originalButton.child, counter.toString()));
+      } else {
+        return originalButton;
+      }
     } else {
       throw TypeError;
     }

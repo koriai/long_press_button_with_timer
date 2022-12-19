@@ -1,11 +1,3 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'long_press_button_with_timer.dart';
 
@@ -21,7 +13,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: title,
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData.light().copyWith(
           useMaterial3: true,
           brightness: Brightness.dark,
           primaryColor: Colors.blue),
@@ -50,13 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             LongPressButtonWithTimer(
-              seconds: 4,
+              seconds: 3,
               afterLongPress: () {
                 showDialog(
                     context: context,
                     builder: (context) {
                       return const AlertDialog(
-                        title: Text("ElevatedButton"),
+                        title: Text(
+                            "Wahoo!!, you've pressed this button for 3 seconds"),
                       );
                     });
               },
@@ -67,13 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 60),
             LongPressButtonWithTimer(
-              seconds: 4,
+              seconds: 5,
+              initialVisible: false,
               afterLongPress: () async {
                 await showDialog(
                     context: context,
                     builder: (context) {
                       return const AlertDialog(
-                        title: Text("textbutton"),
+                        title: Text("Yeah, you clicked and hold for 5 seconds"),
                       );
                     });
               },
@@ -84,13 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 60),
             LongPressButtonWithTimer(
-              seconds: 25,
+              seconds: 10,
+              initialVisible: true,
               afterLongPress: () async {
                 await showDialog(
                     context: context,
                     builder: (context) {
                       return const AlertDialog(
-                        title: Text("outlinedbutton"),
+                        title: Text("Really? for 10 seconds?"),
                       );
                     });
               },
