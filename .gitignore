@@ -48,3 +48,4 @@ app.*.map.json
 /android/
 /ios/
 long_press_button_with_timer.iml
+example/pubspec.lock
