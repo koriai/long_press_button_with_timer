@@ -31,6 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  long_press_button_with_timer:
 
 
   # The following adds the Cupertino Icons font to your application.

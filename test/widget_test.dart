@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
               },
-              button: ElevatedButton(
+              child: ElevatedButton(
                 child: const Text("Elevated Button Sample"),
                 onPressed: () {},
               ),
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
               },
-              button: TextButton(
+              child: TextButton(
                 child: const Text("Text Button Sample"),
                 onPressed: () {},
               ),
@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
               },
-              button: OutlinedButton(
+              child: OutlinedButton(
                 child: const Text("OutlinedButton"),
                 onPressed: () {},
               ),

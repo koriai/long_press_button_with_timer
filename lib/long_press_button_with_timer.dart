@@ -8,7 +8,7 @@ class LongPressButtonWithTimer extends StatefulWidget {
   /// The Base button widget
   /// This should be one of [ElevatedButton], [OutlinedButton], [TextButton]
   // final Widget child;
-  final Widget button;
+  final Widget child;
 
   /// Write your onLongPress function here.
   /// CAUTION: DO NOT WRITE [onLongPress] in [button]
@@ -35,7 +35,7 @@ class LongPressButtonWithTimer extends StatefulWidget {
 
   const LongPressButtonWithTimer({
     Key? key,
-    required this.button,
+    required this.child,
     required this.afterLongPress,
     this.seconds = 3,
     this.initialVisible = false,
@@ -62,20 +62,20 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
   @override
   void initState() {
     _counter = widget.seconds;
-    _buttonType = widget.button.runtimeType;
+    _buttonType = widget.child.runtimeType;
     _initialVisible = widget.initialVisible;
     _counting = false;
 
     if (_buttonType == ElevatedButton) {
-      ElevatedButton originalButton = widget.button as ElevatedButton;
+      ElevatedButton originalButton = widget.child as ElevatedButton;
       buttonChild = originalButton.child!;
       origianlOnTap = originalButton.onPressed;
     } else if (_buttonType == TextButton) {
-      TextButton originalButton = widget.button as TextButton;
+      TextButton originalButton = widget.child as TextButton;
       buttonChild = originalButton.child!;
       origianlOnTap = originalButton.onPressed;
     } else if (_buttonType == OutlinedButton) {
-      OutlinedButton originalButton = widget.button as OutlinedButton;
+      OutlinedButton originalButton = widget.child as OutlinedButton;
       buttonChild = originalButton.child!;
       origianlOnTap = originalButton.onPressed;
     } else {
@@ -108,7 +108,7 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
   /// Make Button with count-down timer
   _button(int counter) {
     if (_buttonType == ElevatedButton) {
-      ElevatedButton originalButton = widget.button as ElevatedButton;
+      ElevatedButton originalButton = widget.child as ElevatedButton;
       if (_initialVisible || (counter != widget.seconds)) {
         return ElevatedButton(
             onPressed: () {},
@@ -119,7 +119,7 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
             child: _makeRowColumn(originalButton.child, counter.toString()));
       }
     } else if (_buttonType == TextButton) {
-      TextButton originalButton = widget.button as TextButton;
+      TextButton originalButton = widget.child as TextButton;
       if (_initialVisible || (counter != widget.seconds)) {
         return TextButton(
             onPressed: () {},
@@ -128,7 +128,7 @@ class _LongPressButtonWithTimerState extends State<LongPressButtonWithTimer> {
         return originalButton;
       }
     } else if (_buttonType == OutlinedButton) {
-      OutlinedButton originalButton = widget.button as OutlinedButton;
+      OutlinedButton originalButton = widget.child as OutlinedButton;
       if (_initialVisible || (counter != widget.seconds)) {
         return OutlinedButton(
             onPressed: () {},

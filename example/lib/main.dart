@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:long_press_button_with_timer.dart';
+import 'package:long_press_button_with_timer/long_press_button_with_timer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
               },
-              button: ElevatedButton(
+              child: ElevatedButton(
                 child: const Text("Elevated Button Sample"),
                 onPressed: () {},
               ),
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
               },
-              button: TextButton(
+              child: TextButton(
                 child: const Text("Text Button Sample"),
                 onPressed: () {},
               ),
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
               },
-              button: OutlinedButton(
+              child: OutlinedButton(
                 child: const Text("OutlinedButton"),
                 onPressed: () {},
               ),
